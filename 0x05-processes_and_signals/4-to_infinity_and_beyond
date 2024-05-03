@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 # Display a msg indefinitely
-if [ "$#" -gt 0 ]; then
-	echo "Error: arguments are not allowed"
-	exit 1
-fi
+# Trap the SIGINT signal (Ctrl+C) to exit gracefully
+trap 'echo ""; exit' INT
 
 while true; do
 	echo " To infinity and beyond"
