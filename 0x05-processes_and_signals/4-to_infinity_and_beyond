@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 # Display a msg indefinitely
+if [ "$#" -gt 0 ]; then
+	echo "Error: arguments are not allowed"
+	exit 1
+fi
+
 while true; do
 	echo " To infinity and beyond"
 	sleep 2
