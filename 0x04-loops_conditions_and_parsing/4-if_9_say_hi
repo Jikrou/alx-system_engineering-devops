@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#display "best school" x10 with hi in the 9th time
+count=1
+while [[ "$count" -le 10 ]];
+do
+	echo "Best School";
+	count=$(( count+1 ))
+	if [ "$count" -eq 10 ]; 
+	then
+		echo "Hi";
+	fi
+done
