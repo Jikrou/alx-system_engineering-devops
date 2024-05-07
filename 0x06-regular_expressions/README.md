@@ -1,0 +1,18 @@
+Regular expressions, often abbreviated as regex or regexp, are sequences of characters that define a search pattern. They are used for matching strings within text based on certain patterns. Regular expressions are widely used in text processing tasks, such as search and replace operations, text validation, and data extraction.
+--Literals: Characters that match themselves. For example, the regex cat matches the sequence of characters "cat" in a text.
+--Metacharacters: Special characters with predefined meanings in regular expressions. Some common metacharacters include:
+-. (dot): Matches any single character except newline.
+-^: Anchors the regex to the start of a line.
+-$: Anchors the regex to the end of a line.
+-*: Matches zero or more occurrences of the preceding element.
+-+: Matches one or more occurrences of the preceding element.
+-?: Matches zero or one occurrence of the preceding element.
+-\: Escapes a metacharacter, treating it as a literal character.
+--Character Classes: Sets of characters enclosed in square brackets [], representing any single character from the set. For example, [aeiou] matches any vowel.
+--Quantifiers: Define the number of occurrences of a character or group. Some common quantifiers include:
+-{n}: Matches exactly n occurrences.
+-{n,}: Matches at least n occurrences.
+-{n,m}: Matches between n and m occurrences.
+--Grouping and Capturing: Parentheses () are used to group characters together. They can also be used for capturing substrings for later use.
+--Alternation: The pipe symbol | represents alternation, allowing the regex to match either of two patterns. For example, cat|dog matches either "cat" or "dog".
+--Anchors: Characters that assert a position in the text but don't match any characters themselves. Common anchors include ^ for the start of a line and $ for the end of a line.
