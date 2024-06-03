@@ -1,7 +1,3 @@
-### Diagram
-
-![Infrastructure Diagram](https://i.postimg.cc/C1L5bLbF/temp-Imagei-Ous-Tn.avif)
-
 ### Components
 
 1. **Load Balancer (HAProxy)**:
@@ -39,6 +35,10 @@
 
 2. **Security Issues**:
    - No firewall: Vulnerable to unauthorized access.
+
+### Diagram
+
+![Infrastructure Diagram](https://i.postimg.cc/C1L5bLbF/temp-Imagei-Ous-Tn.avif)
    - No HTTPS: Data transfer is not encrypted.
 
 3. **No Monitoring**:
