@@ -1,6 +1,6 @@
 ### Diagram
 
-![[Infrastructure Diagram](https://i.postimg.cc/RZ6DVc8m/Two-s.avif)
+![Infrastructure Diagram](https://i.postimg.cc/RZ6DVc8m/Two-s.avif)
 
 ### Components
 
