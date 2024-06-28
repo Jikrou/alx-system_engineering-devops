@@ -1,0 +1,1 @@
+Puppet is a configuration management tool used in IT infrastructure automation and management. It allows administrators and DevOps engineers to define the state of their infrastructure as code, enabling consistent and repeatable deployment and management of servers and applications.
