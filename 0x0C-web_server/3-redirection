@@ -7,12 +7,12 @@ sudo apt update
 sudo apt install -y nginx
 
 # Create directory and index.html file (if they don't exist)
-mkdir -p /etc/nginx/html
-touch /etc/nginx/html/index.html
-bash -c 'echo "Hello World!" > /etc/nginx/html/index.html'
+sudo mkdir -p /etc/nginx/html
+sudo touch /etc/nginx/html/index.html
+sudo bash -c 'echo "Hello World!" > /etc/nginx/html/index.html'
 
 # Configure Nginx for redirection
-bash -c 'cat <<EOF > /etc/nginx/sites-available/default
+sudo bash -c 'cat <<EOF > /etc/nginx/sites-available/default
 server {
     listen 80;
     listen [::]:80 default_server;
