@@ -15,14 +15,9 @@ sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
 # Create HAProxy configuration
 cat > /etc/haproxy/haproxy.cfg << EOF
 global
-log /dev/log    local0
-log /dev/log    local1 notice
-chroot /var/lib/haproxy
-stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
-stats timeout 30s
+log /127.0.0.1 local0 notice
 user haproxy
 group haproxy
-daemon
 
 defaults
 log     global
