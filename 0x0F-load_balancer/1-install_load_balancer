@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# This script installs and configures HAProxy on Ubuntu to 
+#load balance between web-01 and web-02
+
+# Update and install HAProxy
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+
+# Enable HAProxy to be started by init script
+sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+
+# Backup original config
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
+
+# Create HAProxy configuration
+cat > /etc/haproxy/haproxy.cfg << EOF
+global
+log /dev/log    local0
+log /dev/log    local1 notice
+chroot /var/lib/haproxy
+stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
+stats timeout 30s
+user haproxy
+group haproxy
+daemon
+
+defaults
+log     global
+mode    http
+option  httplog
+option  dontlognull
+timeout connect 5000
+timeout client  50000
+timeout server  50000
+
+frontend http_front
+bind *:80
+default_backend http_back
+
+backend http_back
+balance roundrobin
+server 369852-web-01 3.95.32.114:80 check
+server 369852-web-02 100.26.238.118:80 check
+EOF
+
+# Restart HAProxy service
+sudo service haproxy restart
