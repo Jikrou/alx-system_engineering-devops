@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# a Bash script that will display information about subdomains it must accept 2 arguments:
+domain="$1"
+subdomain="$2"
+
+func () {
+#Get information about subdomain
+func_subdomain="www lb-01 web-01 web-02"
+for subdomain in $func_subdomain; do
+	record_type=$(dig "$subdomain.$domain" | grep -A1 "ANSWER SECTION" | tail -1 | awk '{print $4}')
+	destination=$(dig "$subdomain.$domain" | grep -A1 "ANSWER SECTION" | tail -1 | awk '{print $5}')
+	echo "The subdomain $subdomain is a $record_type record and points to $destination"
+done
+}
+if [ "$#" -eq 2 ]; then
+	record_type=$(dig "$subdomain.$domain" | grep -A1 "ANSWER SECTION" | tail -1 | awk '{print $4}')
+	destination=$(dig "$subdomain.$domain" | grep -A1 "ANSWER SECTION" | tail -1 | awk '{print $5}')
+	echo "The subdomain $subdomain is a $record_type record and points to $destination"
+elif [ "$#" -eq 1 ]; then
+	func 
+else
+	echo "Usage: 0-world_wide_web <domain> or <domain> <subdomain>"
+	exit 1
+fi
