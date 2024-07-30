@@ -21,6 +21,7 @@ if __name__ == "__main__":
             1 for t in TOTAL_NUMBER_OF_TASKS if t['completed'])
 
     print(
+            "Employee "
             f"{EMPLOYEE_NAME} is done with tasks("
             f"{NUMBER_OF_DONE_TASKS}/{len(TOTAL_NUMBER_OF_TASKS)}): ")
 
