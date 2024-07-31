@@ -3,6 +3,7 @@
 """ a Python script that, using this REST API, for a given employee ID,
     returns information about his/her TODO list progress.
 """
+print(f"Employee {EMPLOYEE_NAME} is done with tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS)}:")
 import requests
 import sys
 
@@ -21,9 +22,9 @@ if __name__ == "__main__":
             1 for t in TOTAL_NUMBER_OF_TASKS if t['completed'])
 
     print(
-            "Employee "
-            f"{EMPLOYEE_NAME} is done with tasks("
-            f"{NUMBER_OF_DONE_TASKS}/{len(TOTAL_NUMBER_OF_TASKS)}): ")
+            "Employee"
+            f" {EMPLOYEE_NAME} is done with tasks("
+            f"{NUMBER_OF_DONE_TASKS}/{len(TOTAL_NUMBER_OF_TASKS)}):")
 
     for t in TOTAL_NUMBER_OF_TASKS:
         if t['completed']:
