@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
     (not active users, total subscribers) for a given subreddit.
     """
 
-    if subreddit is None or not isinstance(subreddit, str):
+    if not isinstance(subreddit, str):
         return 0
 
     user_agent = {'User-agent': 'MyPythonScript/1.0'}
