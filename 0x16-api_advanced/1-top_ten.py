@@ -12,19 +12,19 @@ def top_ten(subreddit):
     10 hot posts listed for a given subreddit.
     """
 
-    if not isinstance(subreddit, str):
-        print(None)
-        return
+    if subreddit is None or not isinstance(subreddit, str):
+        print("None")
 
     user_agent = {'User-agent': 'MyPythonScript/1.0'}
-    url = 'https://www.reddit.com/r/{}/hot.json?limit=10'.format(subreddit)
-    response = get(url, headers=user_agent, allow_redirects=False)
+    params = {'limit': 10}
+    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
+    response = get(url, headers=user_agent, params=params)
+    data = response.json()
 
-    if response.status_code == 200:
-        data = response.json()
+    try:
         posts = data.get('data').get('children')
         for post in posts[:10]:
             print(post.get('data').get('title'))
 
-    else:
-        print(None)
+    except Exception:
+        print("None")
